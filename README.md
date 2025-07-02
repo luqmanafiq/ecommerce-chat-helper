@@ -65,7 +65,6 @@ Before we start, make sure you have:
 <td>
 
 **🔑 API Keys Needed**
-- [OpenAI API Key](https://platform.openai.com/account/api-keys)
 - [Google AI API Key](https://aistudio.google.com/app/apikey)
 - [MongoDB Atlas Account](https://www.mongodb.com/cloud/atlas)
 
@@ -95,38 +94,13 @@ Create a `.env` file in the `server` directory:
 
 ```env
 # 🤖 AI Model APIs
-OPENAI_API_KEY=your_openai_api_key_here
 GOOGLE_API_KEY=your_google_api_key_here
 
 # 🗄️ Database
 MONGODB_ATLAS_URI=your_mongodb_atlas_uri_here
 ```
 
-### 🗄️ **Step 3: Database Configuration**
-
-1. **Create Database**: In MongoDB Atlas, create a database called `inventory_database`
-
-2. **Setup Vector Search Index**:
-   - Navigate to **Atlas Search** tab
-   - Click **Create Search Index**
-   - Select `items` collection
-   - Choose **JSON Editor** and paste:
-   
-   ```json
-   {
-     "fields": [
-       {
-         "type": "vector",
-         "path": "embedding",
-         "numDimensions": 1536,
-         "similarity": "cosine"
-       }
-     ]
-   }
-   ```
-   - Set index name to: `vector_index`
-
-### 🌱 **Step 4: Seed the Database**
+### 🌱 **Step 3: Seed the Database**
 
 ```bash
 # Generate AI-powered synthetic furniture data
@@ -143,7 +117,7 @@ npm run seed
 
 </details>
 
-### 🚀 **Step 5: Start the Backend**
+### 🚀 **Step 4: Start the Backend**
 
 ```bash
 npm run dev
@@ -181,7 +155,7 @@ curl -X POST -H "Content-Type: application/json" \
 
 ## 🎨 Frontend Setup
 
-### 📱 **Step 6: Launch the React App**
+### 📱 **Step 5: Launch the React App**
 
 ```bash
 # In a new terminal, navigate to client directory
